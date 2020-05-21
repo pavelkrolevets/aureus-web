@@ -30,18 +30,14 @@ https://gitbitex.com:8080/trade/BTC-USDT
 * Run `npm run build` to build production
 
 ## Configure BackEnd
+Backend configured to run locally by default 127.0.0.1
+
+If you'd like to use another ports and adresses:
 * Configure back-end host in `gulpfile.js` use proxy
 ```
-apiProxy = 'https://gitbitex.com:8080/';
+apiProxy = 'http://yourip:port/';
 ```
 * Configure websocket host in `src/script/constant.ts`
 ```
-static SOCKET_SERVER = 'wss://gitbitex.com:8080/ws';
+static SOCKET_SERVER = 'ws://yourip:port/ws';
 ```
-
-## Questions?
-Please let me know if you have any questions. You can submit an issue or send me an email 
-(liyongsheng@me.com)
-
-## Contributing
-This project welcomes contributions and suggestions and we are excited to work with the power user community to build the best exchange in the world

@@ -26,7 +26,7 @@ options = minimist(process.argv.slice(2));
 isProduction = options.env == 'prod';
 buildPath = './build/web';
 routeBase = '/';
-apiProxy = 'https://gitbitex.com:8080/';
+apiProxy = 'http://127.0.0.1:8001/';
 
 function createTask(task, taskName) {
     if (task.type == 'concat') {
@@ -45,7 +45,7 @@ function createTask(task, taskName) {
                 removeScriptTypeAttributes: true,
                 removeStyleLinkTypeAttributes: true,
                 minifyJS: true,
-                minifyCSS: true   
+                minifyCSS: true
             }
 
             gulp.task(runTaskName, function () {
@@ -162,7 +162,7 @@ gulp.task('browser-sync', function () {
                         from: new RegExp( "/^" + routeBase + "(.*)$", "gi"),
                         to: routeBase + 'index.html'
                     }
-                    
+
                 ]
             })]
         }
@@ -198,10 +198,10 @@ gulp.task('clean-assets', function () {
 
 gulp.task("default", ['clean'], function() {
     if(isProduction) {
-        return runSequence(tasks, 
+        return runSequence(tasks,
         "vendor.script.md5.rev", "vendor.script.md5.replace", "vendor.script.md5.clean",
         "app.script.md5.rev", "app.script.md5.replace", "app.script.md5.clean",
-        "app.style.md5.rev", "app.style.md5.replace", "app.style.md5.clean", 
+        "app.style.md5.rev", "app.style.md5.replace", "app.style.md5.clean",
         "app.md5.clean")
     }
     else return runSequence(tasks);
