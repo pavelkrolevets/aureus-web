@@ -1,24 +1,10 @@
-// Copyright 2019 GitBitEx.com
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     https://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 import { Constant } from './../../../constant';
 import { App } from './../../../app';
 import { StoreService } from './../../../store/service';
 import { Dom, Component, Prop, Watch, Emit } from "./../../component";
 
-@Dom('header-trade', require('./trade.jade')())
-export class TradeHeaderComponent extends Component {
+@Dom('header-trade-der', require('./trade.jade')())
+export class TradeHeaderComponentDer extends Component {
 
     @Prop()
     products: any[];
@@ -48,14 +34,14 @@ export class TradeHeaderComponent extends Component {
     }
 
     get product() {
-        return StoreService.Trade.getObject(this.productId).product;
+        return StoreService.TradeDer.getObject(this.productId).product;
     }
 
     get productGroups() {
 
         let groups: any = {};
 
-        StoreService.Trade.products.forEach((item: any) => {
+        StoreService.TradeDer.products.forEach((item: any) => {
             item.symbol = Constant.CURRENCY_SYMBOL[item.quoteCurrency];
             groups[item.quoteCurrency] || (groups[item.quoteCurrency] = []);
             groups[item.quoteCurrency].push(item);

@@ -61,7 +61,9 @@ import { OrderBookPanelComponent } from './component/panel/order-book/order-book
 import { OrderFormComponent } from './component/form/order/order';
 import { TradePanelComponent } from './component/panel/trade/trade';
 import { TradeHeaderComponent } from './component/header/trade/trade';
+import { TradeHeaderComponentDer } from './component/header/trade_der/trade';
 import { TradePage } from './page/trade/trade';
+import { TradePageDer } from './page/trade_der/trade';
 import { PageLoadingComponent } from './component/page/loading/loading';
 import { PageErrorComponent } from './component/page/error/error';
 import { PageAlertComponent } from './component/page/alert/alert';
@@ -74,6 +76,7 @@ import { LogoComponent } from './component/logo/logo';
 Framework.initModules([
     HomePage,
     TradePage,
+    TradePageDer,
     ProxyPage,
     AccountSigninPage,
     AccountSignupPage,
@@ -88,6 +91,7 @@ Framework.initModules([
     PageErrorComponent,
     PageLoadingComponent,
     TradeHeaderComponent,
+    TradeHeaderComponentDer,
     TradePanelComponent,
     OrderBookPanelComponent,
     OrderPanelComponent,

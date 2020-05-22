@@ -43,7 +43,7 @@ export class AccountOrderPage extends Page {
         super.mounted();
         this.pageLoadingHide();
         this.onSelected();
-        this.setTitle('Gitbiex | Digital Asset Exchange');
+        this.setTitle('Aureus | Community Digital Asset Exchange');
     }
 
     get product() {

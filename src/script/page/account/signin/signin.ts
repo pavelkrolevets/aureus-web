@@ -35,7 +35,7 @@ export class AccountSigninPage extends Page {
     mounted() {
         super.mounted();
         this.pageLoadingHide();
-        this.setTitle('Gitbiex | Digital Asset Exchange');
+        this.setTitle('Aureus | Community Digital Asset Exchange');
         setTimeout(() => {
             (this.$refs.inputEmail as HTMLInputElement).disabled = false;
             (this.$refs.inputPassword as HTMLInputElement).disabled = false;

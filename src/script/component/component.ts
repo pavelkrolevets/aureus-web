@@ -27,10 +27,10 @@ export function Dom(elementName: string, template: string, props?: string[]) {
 }
 
 export class Component extends BaseFramework {
-    
+
     static elementName: string;
 
-    element: HTMLElement
+    element: HTMLElement;
 
     mounted() {
         this.element = this.$el;

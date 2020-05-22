@@ -14,13 +14,18 @@
 
 import { AccountStore } from './account';
 import { TradeStore } from './trade';
+import { TradeStoreDer } from './trade_der';
 
 export class StoreService {
 
     private static _account: AccountStore;
-    
+
     static get Trade() {
         return TradeStore.instance();
+    }
+
+    static get TradeDer() {
+        return TradeStoreDer.instance();
     }
 
     static get Account() {

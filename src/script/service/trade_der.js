@@ -1,12 +1,8 @@
 import { Service } from './service';
 
-export class TradeService extends Service {
+export class TradeServiceDer extends Service {
 
     getProducts() {
-        return this.request.get('/products');
-    }
-
-    getProductsDer() {
         return this.request.get('/products_der');
     }
 

@@ -1,6 +1,6 @@
 div.header.header-home
     div.navbar-inner
-        logo(theme='light')
+        //logo(theme='light')
         div.navbar
             li
                 router-link(to='/') Help
@@ -13,7 +13,7 @@ div.header.header-home
             li.login
                 router-link(to='/account/signin') Log In
             li.signup
-                router-link(to='/account/signup') Sign Up 
+                router-link(to='/account/signup') Sign Up
         div.menu(@click.stop='dropdownToggle')
             icon-hamburger(v-show='!showDropdown')
             span.close(v-show='showDropdown') ✕

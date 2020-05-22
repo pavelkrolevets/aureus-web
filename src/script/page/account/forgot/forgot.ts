@@ -25,7 +25,7 @@ export class AccountForgotPage extends Page {
     mounted() {
         super.mounted();
         this.pageLoadingHide();
-        this.setTitle('Gitbiex | Digital Asset Exchange');
+        this.setTitle('Aureus | Community Digital Asset Exchange');
     }
 
     submit() {
@@ -52,7 +52,7 @@ export class AccountForgotPage extends Page {
                 this.error = "Email doesn't look correct";
                 return;
             }
-    
+
             HttpService.Account.sendEmailVerifyCode(this.account.email).then(() => {
                 this.codeIsSend = true;
             }).catch((error: any) => {

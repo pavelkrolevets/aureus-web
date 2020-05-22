@@ -20,7 +20,7 @@ export class HomePage extends Page {
     mounted() {
         super.mounted();
         this.pageLoadingHide();
-        this.setTitle('Gitbitex | Digital Asset Exchange');
+        this.setTitle('Aureus | Community Digital Asset Exchange');
     }
 
 }

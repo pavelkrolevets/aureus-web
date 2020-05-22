@@ -29,7 +29,7 @@ export class AccountProfilePage extends Page {
         this.needLogin = true;
         super.mounted();
         this.pageLoadingHide();
-        this.setTitle('Gitbiex | Digital Asset Exchange');
+        this.setTitle('Aureus | Community Digital Asset Exchange');
         this.account = Object.assign({}, StoreService.Account.userInfo);
     }
 

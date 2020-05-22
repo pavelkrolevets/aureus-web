@@ -25,8 +25,8 @@ div.header.header-trade
                 | {{product.volume24h}} {{product.baseCurrency}}
                 span.description 24h volume
     div.navbar
-        li(:class='{active: active==0}')
-            router-link(to='/trade/der/BTC-USDT') Trade Derivatives
+        li(:class='{active: active==2}')
+            router-link(to='/trade/BTC-USDT') Trade Spot
         li(v-if='!logined')
             a(@click='toSign') Sign in
         li.user(@click.stop='dropdownToggle', v-if='logined')

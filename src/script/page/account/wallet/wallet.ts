@@ -24,7 +24,7 @@ export class AccountWalletPage extends Page {
         this.needLogin = true;
         super.mounted();
         this.pageLoadingHide();
-        this.setTitle('Gitbiex | Digital Asset Exchange');
+        this.setTitle('Aureus | Community Digital Asset Exchange');
     }
 
     walletSelect(wallet: any) {
