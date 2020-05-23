@@ -3,7 +3,7 @@ import { App } from './../../../app';
 import { StoreService } from './../../../store/service';
 import { Dom, Component, Prop, Watch, Emit } from "./../../component";
 
-@Dom('header-trade-der', require('./trade.jade')())
+@Dom('header-trade-der', require('./trade_der.jade')())
 export class TradeHeaderComponentDer extends Component {
 
     @Prop()

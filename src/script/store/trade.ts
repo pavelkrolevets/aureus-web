@@ -40,7 +40,7 @@ export class TradeStore extends Store {
                 objects: undefined,
                 funds: {}
             },
-        
+
             mutations: {
                 setProducts: (state: any, products: any[]) => {
 
@@ -87,7 +87,7 @@ export class TradeStore extends Store {
             }
 
         }
-    
+
     }
 
     get products() {
@@ -104,6 +104,7 @@ export class TradeStore extends Store {
 
     loadProducts(callback?: () => void) {
         HttpService.Trade.getProducts().then((response: any) => {
+            // console.log("Products ", response);
             this.store.commit('setProducts', response);
             callback && callback();
         });
@@ -165,7 +166,7 @@ export class TradeStore extends Store {
         this.products.forEach((product: any) => {
             productIds.push(product.id);
         });
-        this.subscribe(productIds, [SubscribeChannel.TICKET]);    
+        this.subscribe(productIds, [SubscribeChannel.TICKET]);
     }
 
     subscribe(productIds: string[], channels: string[]) {
@@ -191,7 +192,7 @@ export class TradeStore extends Store {
             'channels': channels
         });
     }
-    
+
     setOrderBook(orderBook: any) {
         this.store.commit('setOrderBook', orderBook);
     }
@@ -254,7 +255,7 @@ export class TradeStore extends Store {
         if (!last_record) {
             return;
         }
-  
+
         time = time - (time % granularity);
 
         object.history[0] = [
@@ -277,9 +278,9 @@ export class TradeStore extends Store {
         this.updateHistory(data);
 
         data.localTime = Moment(data.time).format('H:mm:ss');;
-        
+
         let trades = this.getObject(data.productId).tradeHistory;
-        
+
         trades.unshift(data);
 
         if (trades.length > 120) {
@@ -312,11 +313,11 @@ export class TradeStore extends Store {
                 orders = this.getObject(productId).openOrders;
 
             products.items[productId].items.forEach((order: any) => {
-        
+
                 let findOrders = orders.filter((_order: any) => {
                     return _order.id == order.id;
                 })
-        
+
                 order.statusFormat = order.status;
                 order.price = Number(order.price).toFixed(product.quoteScale);
                 order.filledSize = Number(order.filledSize).toFixed(4);
@@ -324,7 +325,7 @@ export class TradeStore extends Store {
                 order.size = Number(order.size).toFixed(4);
                 order.timeFormat = Moment(order.createdAt).format('MM-DD hh:mm:ss');
                 order.priceFormat = Number(order.price) ? order.price: 'MARKET';
-    
+
                 if (findOrders.length) {
                     findOrders[0] = Object.assign(findOrders[0], order);
                 }
@@ -333,7 +334,7 @@ export class TradeStore extends Store {
                 }
 
             });
-     
+
             this.store.commit('setOpenOrders', {productId: productId, items: orders});
 
         }
@@ -367,12 +368,12 @@ export class TradeStore extends Store {
             this.setOrderBook(msg);
         }
         else if (msg.type == 'l2update') {
-            
+
             this.bookBuffer || (this.bookBuffer = new SocketMsgBuffer((buffers: any[]) => {
                 this.updateOrderBook(buffers);
             }, 200));
             this.bookBuffer.push(msg);
-            
+
         }
         else if (msg.type.indexOf('candles') === 0) {
             this.updateHistory(msg);

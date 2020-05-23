@@ -7,11 +7,11 @@ export class TradeServiceDer extends Service {
     }
 
     getProductHistory(productId: string, granularity: number) {
-        return this.request.get(`/products/${productId}/candles?granularity=${granularity}`);
+        return this.request.get(`/products_der/${productId}/candles?granularity=${granularity}`);
     }
 
     getProductTradeHistory(productId: string) {
-        return this.request.get(`/products/${productId}/trades`);
+        return this.request.get(`/products_der/${productId}/trades`);
     }
 
 }

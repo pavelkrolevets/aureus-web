@@ -59,11 +59,12 @@ import { TradeHistoryPanelComponent } from './component/panel/trade-history/trad
 import { TradeViewChartComponent } from './component/chart/trade-view/trade-view';
 import { OrderBookPanelComponent } from './component/panel/order-book/order-book';
 import { OrderFormComponent } from './component/form/order/order';
+import { OrderFormComponentDer } from './component/form/order_der/order';
 import { TradePanelComponent } from './component/panel/trade/trade';
 import { TradeHeaderComponent } from './component/header/trade/trade';
-import { TradeHeaderComponentDer } from './component/header/trade_der/trade';
+import { TradeHeaderComponentDer } from './component/header/trade_der/trade_der';
 import { TradePage } from './page/trade/trade';
-import { TradePageDer } from './page/trade_der/trade';
+import { TradePageDer } from './page/trade_der/trade_der';
 import { PageLoadingComponent } from './component/page/loading/loading';
 import { PageErrorComponent } from './component/page/error/error';
 import { PageAlertComponent } from './component/page/alert/alert';
@@ -97,6 +98,7 @@ Framework.initModules([
     OrderPanelComponent,
     OrderListPanelComponent,
     OrderFormComponent,
+    OrderFormComponentDer,
     TradeViewChartComponent,
     DepthChartComponent,
     CandleChartComponent,

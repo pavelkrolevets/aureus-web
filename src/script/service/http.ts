@@ -15,16 +15,18 @@
 import { FileService } from './file';
 import { ServerService } from './server';
 import { OrderService } from './order';
+import { OrderServiceDer } from './order_der';
 import { TradeService } from './trade';
-// import { TradeServiceDer } from './trade_der';
+import { TradeServiceDer } from './trade_der';
 import { AccountService } from './account';
 
 export class HttpService {
 
     private static _account: AccountService;
     private static _trade: TradeService;
-    // private static _trade_der: TradeServiceDer;
+    private static _trade_der: TradeServiceDer;
     private static _order: OrderService;
+    private static _order_der: OrderServiceDer;
     private static _server: ServerService;
     private static _file: FileService;
 
@@ -38,13 +40,18 @@ export class HttpService {
         return this._trade;
     }
 
-    // static get TradeDer() {
-    //     this._trade_der || (this._trade_der = new TradeServiceDer());
-    //     return this._trade_der;
-    // }
+    static get TradeDer() {
+        this._trade_der || (this._trade_der = new TradeServiceDer());
+        return this._trade_der;
+    }
 
     static get Order() {
         this._order || (this._order = new OrderService());
+        return this._order;
+    }
+
+    static get OrderDer() {
+        this._order_der || (this._order_der = new OrderServiceDer());
         return this._order;
     }
 

@@ -2,7 +2,7 @@ div.page.page-trade
     header-trade-der(:products='products', :productId='productId')
     div.content
         div.content-left
-            form-order(
+            form-order-der(
                 :class='{active: componentActive==0}',
                 :productId='productId', ref='orderForm', @deposit='deposit', @withdrawal='withdrawal'
             )

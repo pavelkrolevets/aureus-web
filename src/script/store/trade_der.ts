@@ -89,7 +89,8 @@ export class TradeStoreDer extends Store {
     }
 
     loadProducts(callback?: () => void) {
-        HttpService.Trade.getProductsDer().then((response: any) => {
+        HttpService.TradeDer.getProducts().then((response: any) => {
+            console.log("Products der", response);
             this.store.commit('setProducts', response);
             callback && callback();
         });
@@ -98,7 +99,7 @@ export class TradeStoreDer extends Store {
     loadProductHistory(productId: string, granularity: number, callback?: () => void) {
         let historyType = `candles_${granularity}`;
         this.subscribe([productId], [historyType]);
-        HttpService.Trade.getProductHistory(productId, granularity).then((response: any) => {
+        HttpService.TradeDer.getProductHistory(productId, granularity).then((response: any) => {
             this.store.commit('setHistory', {
                 productId: productId,
                 type: historyType,
@@ -109,7 +110,7 @@ export class TradeStoreDer extends Store {
     };
 
     loadTradeHistory(productId: string) {
-        HttpService.Trade.getProductTradeHistory(productId).then((response: any) => {
+        HttpService.TradeDer.getProductTradeHistory(productId).then((response: any) => {
             response.forEach((trade: any) => {
                 trade.localTime = Moment(trade.time).format('H:mm:ss');
             });
@@ -120,7 +121,7 @@ export class TradeStoreDer extends Store {
     loadOpenOrders(productId: string, callback?: () => void) {
         this.subscribe([productId], ['order']);
         let product = this.getObject(productId).product;
-        HttpService.Order.getOrders(productId, 30, ['open']).then((response: any) => {
+        HttpService.OrderDer.getOrders(productId, 30, ['open']).then((response: any) => {
             response.items.forEach((order: any) => {
                 order.statusFormat = order.status;
                 order.price = Number(order.price).toFixed(product.quoteScale);

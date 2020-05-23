@@ -23,7 +23,7 @@ export class App {
     private static loaded: number = 0;
 
     static init(callback: () => void) {
-  
+
         StoreService.Account.current(() => {
             this.loadData(callback);
         });
@@ -34,7 +34,7 @@ export class App {
         window.onresize = () => {
             DomWatch.visibleChanged();
         }
-        
+
     }
 
     private static loadData(callback: () => void) {
@@ -45,6 +45,15 @@ export class App {
                 callback && callback();
             }, (msg: any) => {
                 StoreService.Trade.parseWebSocketMessage(msg);
+            });
+        });
+
+        StoreService.TradeDer.loadProducts(() => {
+            WebSocketService.Instance.connect(Constant.SOCKET_SERVER, () => {
+                StoreService.TradeDer.subscribeAllTicker();
+                callback && callback();
+            }, (msg: any) => {
+                StoreService.TradeDer.parseWebSocketMessage(msg);
             });
         });
 

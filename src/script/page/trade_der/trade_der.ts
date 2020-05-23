@@ -5,7 +5,7 @@ import { SubscribeChannel } from './../../store/channel';
 import { StoreService } from './../../store/service';
 import { Page, Route } from "../page";
 
-@Route('/trade/der/:id', require('./trade.jade')())
+@Route('/trade/der/:id', require('./trade_der.jade')())
 export class TradePageDer extends Page {
 
     tradeHistoryActive: boolean = false ;
