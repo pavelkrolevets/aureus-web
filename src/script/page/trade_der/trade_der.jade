@@ -1,20 +1,20 @@
 div.page.page-trade
     header-trade-der(:products='products', :productId='productId')
-    //div.content
-    //    div.content-left
-    //        form-order-der(
-    //            :class='{active: componentActive==0}',
-    //            :productId='productId', ref='orderForm', @deposit='deposit', @withdrawal='withdrawal'
-    //        )
-    //    div.content-center
-    //        div.order-book-panel(:class='{active: componentActive==1}')
-    //            panel-order-book(:productId='productId', @tabbar-change='orderBookTabbarChange', @select='orderBookSelect')
-    //        div.chart-panel(:class='{active: componentActive==2}')
-    //            chart-trade-view(:productId='productId')
-    //        div.order-history(:class='{active: componentActive==3}')
-    //            panel-order(:productId='productId')
-    //    div.content-right(:class='{active: componentActive==4, historyActive: tradeHistoryActive}')
-    //        panel-trade-history(:productId='productId', @tabbar-change='tradeHistoryTabbarChange')
+    div.content
+        div.content-left
+            form-order-der(
+                :class='{active: componentActive==0}',
+                :productId='productId', ref='orderForm', @deposit='deposit', @withdrawal='withdrawal'
+            )
+        //div.content-center
+        //    div.order-book-panel(:class='{active: componentActive==1}')
+        //        panel-order-book(:productId='productId', @tabbar-change='orderBookTabbarChange', @select='orderBookSelect')
+        //    div.chart-panel(:class='{active: componentActive==2}')
+        //        chart-trade-view(:productId='productId')
+        //    div.order-history(:class='{active: componentActive==3}')
+        //        panel-order(:productId='productId')
+        //div.content-right(:class='{active: componentActive==4, historyActive: tradeHistoryActive}')
+        //    panel-trade-history(:productId='productId', @tabbar-change='tradeHistoryTabbarChange')
     //div.bottom-menu
     //    span(:class='{active: componentActive==0}', @click='componentActive=0') TRADE
     //    span(:class='{active: componentActive==1}', @click='componentActive=1') BOOK

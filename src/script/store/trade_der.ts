@@ -85,6 +85,7 @@ export class TradeStoreDer extends Store {
     }
 
     getObject(productId: string) {
+        console.log("Product", this.store.state.objects[productId]);
         return this.store.state.objects[productId];
     }
 

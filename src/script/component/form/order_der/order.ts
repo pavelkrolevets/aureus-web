@@ -51,7 +51,7 @@ export class OrderFormComponentDer extends Component {
 
     mounted() {
         super.mounted();
-        StoreService.Account.logined && StoreService.Trade.loadFunds([
+        StoreService.Account.logined && StoreService.TradeDer.loadFunds([
             this.object.product.baseCurrency,
             this.object.product.quoteCurrency,
         ]);
@@ -99,7 +99,7 @@ export class OrderFormComponentDer extends Component {
 
     tradeSideChange(side: number) {
         this.trade.side = side;
-        this.trade.price = this.object.product.price;;
+        this.trade.price = this.object.product.price;
         this.trade.size = undefined;
         this.trade.quote = undefined;
     }
