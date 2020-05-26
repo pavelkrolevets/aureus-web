@@ -42,9 +42,9 @@ export class TradeHeaderComponentDer extends Component {
         let groups: any = {};
 
         StoreService.TradeDer.products.forEach((item: any) => {
-            item.symbol = Constant.CURRENCY_SYMBOL[item.quoteCurrency];
-            groups[item.quoteCurrency] || (groups[item.quoteCurrency] = []);
-            groups[item.quoteCurrency].push(item);
+            // item.symbol = Constant.CURRENCY_SYMBOL[item.quoteCurrency];
+            groups[item.kind] || (groups[item.kind] = []);
+            groups[item.kind].push(item);
         });
 
         return groups;

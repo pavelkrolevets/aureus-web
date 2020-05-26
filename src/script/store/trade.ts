@@ -104,7 +104,7 @@ export class TradeStore extends Store {
 
     loadProducts(callback?: () => void) {
         HttpService.Trade.getProducts().then((response: any) => {
-            // console.log("Products ", response);
+            console.log("Products ", response);
             this.store.commit('setProducts', response);
             callback && callback();
         });

@@ -26,7 +26,7 @@ div.header.header-trade
                 span.description 24h volume
     div.navbar
         li(:class='{active: active==0}')
-            router-link(to='/trade/der/BTC-USDT') Trade Derivatives
+            router-link(to='/trade_der/BTC-PERPETUAL') Trade Derivatives
         li(v-if='!logined')
             a(@click='toSign') Sign in
         li.user(@click.stop='dropdownToggle', v-if='logined')

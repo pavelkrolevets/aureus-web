@@ -61,6 +61,7 @@ import { OrderBookPanelComponent } from './component/panel/order-book/order-book
 import { OrderFormComponent } from './component/form/order/order';
 import { OrderFormComponentDer } from './component/form/order_der/order';
 import { TradePanelComponent } from './component/panel/trade/trade';
+import { TradePanelComponentDer } from './component/panel/trade_der/trade';
 import { TradeHeaderComponent } from './component/header/trade/trade';
 import { TradeHeaderComponentDer } from './component/header/trade_der/trade_der';
 import { TradePage } from './page/trade/trade';
@@ -94,6 +95,7 @@ Framework.initModules([
     TradeHeaderComponent,
     TradeHeaderComponentDer,
     TradePanelComponent,
+    TradePanelComponentDer,
     OrderBookPanelComponent,
     OrderPanelComponent,
     OrderListPanelComponent,

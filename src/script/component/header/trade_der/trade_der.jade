@@ -5,14 +5,14 @@ div.header.header-trade
             div.product-selector-btn(
                 @mouseover="productSelectorHide(false)"
                 @mouseout="productSelectorHide(true)")
-                | {{product.baseCurrency}}/{{product.quoteCurrency}}
-                span.arrow
+                | {{product.id}}
+                //span.arrow
                 span.description
             div.product-selector-panel(
                 v-show='productSelectorShowing',
                 @mouseover="productSelectorHide(false)"
                 @mouseout="productSelectorHide(true)")
-                panel-trade(:groups='productGroups')
+                panel-trade-der(:groups='productGroups')
         li
             div.product-last-price
                 | {{parseFloat(product.price).toFixed(product.quoteScale)}} {{product.quoteCurrency}}
