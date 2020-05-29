@@ -42,19 +42,19 @@ export class OrderBookPanelComponent extends Component {
     }
 
     mounted() {
-         
+
         super.mounted();
         let bookDom = (this.$refs.book as HTMLDivElement);
-        DomWatch.visibleChange(bookDom, (state: boolean) => { 
+        DomWatch.visibleChange(bookDom, (state: boolean) => {
             if (state) {
                 bookDom.scrollTop = (1832 - bookDom.clientHeight)/2;
             }
         });
-        
+
     }
 
     get orderBook() : any {
-    
+
         let orderBook = Helper.Trade_margeOrderBook(this.object.orderBook, this.priceScale);
 
         let formatBids = [],
@@ -87,7 +87,7 @@ export class OrderBookPanelComponent extends Component {
 
         this.toMark(formatAsks, this.lastedAsks);
         this.lastedAsks = formatAsks;
-        
+
         let firstBid = Collect(this.object.orderBook.bids).first(),
             lastAsk = Collect(this.object.orderBook.asks).first();
         if (firstBid && lastAsk) {
@@ -108,7 +108,7 @@ export class OrderBookPanelComponent extends Component {
             items.forEach((item: any) => {
                 let first = Collect(lastedItems).first((_item: any) => {
                     return item[0] == _item[0];
-                })
+                });
                 if(first) {
                     if (Number(first[1]) != Number(item[1])) {
                         item[3] = ['am-0-0', 'am-0-1'][Math.floor(new Date().getTime()) % 2];
@@ -123,7 +123,7 @@ export class OrderBookPanelComponent extends Component {
             });
 
         }
- 
+
     }
 
     @Emit('tabbar-change')

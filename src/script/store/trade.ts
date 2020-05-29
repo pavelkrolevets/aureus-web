@@ -170,6 +170,7 @@ export class TradeStore extends Store {
     }
 
     subscribe(productIds: string[], channels: string[]) {
+        console.log("productIds", productIds);
         WebSocketService.Instance.subscribe({
             'type': 'subscribe',
             'product_ids': productIds,

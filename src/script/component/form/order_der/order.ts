@@ -51,7 +51,7 @@ export class OrderFormComponentDer extends Component {
 
     mounted() {
         super.mounted();
-        StoreService.Account.logined && StoreService.TradeDer.loadFunds([
+        StoreService.Account.logined && StoreService.Trade.loadFunds([
             this.object.product.baseCurrency,
             this.object.product.quoteCurrency,
         ]);
@@ -66,26 +66,26 @@ export class OrderFormComponentDer extends Component {
     }
 
     get object() {
-        return StoreService.TradeDer.getObject(this.productId);
+        return StoreService.Trade.getObject(this.productId);
     }
 
     get baseBalance() {
-        let fund = StoreService.TradeDer.funds[this.object.product.baseCurrency];
+        let fund = StoreService.Trade.funds[this.object.product.baseCurrency];
         return fund ? Number(fund.available).toFixed(4) : '--'
     }
 
     get baseHold() {
-        let fund = StoreService.TradeDer.funds[this.object.product.baseCurrency];
+        let fund = StoreService.Trade.funds[this.object.product.baseCurrency];
         return fund ? Number(fund.hold).toFixed(4) : '--'
     }
 
     get quoteHold() {
-        let fund = StoreService.TradeDer.funds[this.object.product.quoteCurrency];
+        let fund = StoreService.Trade.funds[this.object.product.quoteCurrency];
         return fund ? Number(fund.hold).toFixed(4) : '--'
     }
 
     get quoteBalance() {
-        let fund = StoreService.TradeDer.funds[this.object.product.quoteCurrency];
+        let fund = StoreService.Trade.funds[this.object.product.quoteCurrency];
         return fund ? Number(fund.available).toFixed(4) : '--'
     }
 

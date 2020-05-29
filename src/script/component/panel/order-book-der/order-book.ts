@@ -20,8 +20,8 @@ import { StoreService } from './../../../store/service';
 import { Dom, Component, Prop, Watch, Emit } from "./../../component";
 
 
-@Dom('panel-order-book', require('./order-book.jade')())
-export class OrderBookPanelComponent extends Component {
+@Dom('panel-order-book-der', require('./order-book.jade')())
+export class OrderBookPanelComponentDer extends Component {
 
     @Prop()
     productId: string;

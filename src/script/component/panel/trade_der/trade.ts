@@ -25,7 +25,7 @@ export class TradePanelComponentDer extends Component {
     }
 
     toTrade(product: any) {
-        location.href = '/trade/' + product.id;
+        location.href = '/trade_der/' + product.id;
     }
 
 }

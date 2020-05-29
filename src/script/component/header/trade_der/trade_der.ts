@@ -34,17 +34,19 @@ export class TradeHeaderComponentDer extends Component {
     }
 
     get product() {
-        return StoreService.TradeDer.getObject(this.productId).product;
+        return StoreService.Trade.getObject(this.productId).product;
     }
 
     get productGroups() {
 
         let groups: any = {};
 
-        StoreService.TradeDer.products.forEach((item: any) => {
+        StoreService.Trade.products.forEach((item: any) => {
             // item.symbol = Constant.CURRENCY_SYMBOL[item.quoteCurrency];
-            groups[item.kind] || (groups[item.kind] = []);
-            groups[item.kind].push(item);
+            if (item.kind !== "spot") {
+                groups[item.kind] || (groups[item.kind] = []);
+                groups[item.kind].push(item);
+            }
         });
 
         return groups;

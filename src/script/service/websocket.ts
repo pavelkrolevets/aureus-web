@@ -39,6 +39,7 @@ export class WebSocketService {
 
             this.ws.onopen = () => {
                 this.closed = false;
+                console.log("Ws connected ...");
                 if (this.subscribes.length > 0) {
                     this.subscribes.forEach((sub: any) => {
                         this.subscribe(sub);
@@ -47,9 +48,10 @@ export class WebSocketService {
                 }
                 this.onOpen && this.onOpen();
                 this.onOpen = () => {};
-            }
+            };
             this.ws.onmessage = (msg: any) => {
                 msg = JSON.parse(msg.data);
+                console.log("Ws msg", msg);
                 this.onMessage && this.onMessage(msg);
                 if (msg.type == 'subscriptions') {
                     this.subscribes = [];
@@ -67,13 +69,13 @@ export class WebSocketService {
                 this.closed = true;
             }
 
-        }
+        };
 
         connect();
 
         setInterval(() => {
             if (this.ws.readyState == 1) {
-                //this.ws.send('{"type": "ping"}')
+                this.ws.send('{"type": "ping"}')
             }
             else {
                 connect();

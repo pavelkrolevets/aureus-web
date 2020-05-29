@@ -1,7 +1,7 @@
 div.panel-trade-der
     div.group(v-for='(products, key) in groups')
         h4 {{key}}
-        link-proxy.item(v-for='product in products', :to="'/trade/'+product.id", :key='product.id')
+        link-proxy.item(v-for='product in products', :to="'/trade_der/'+product.id", :key='product.id')
             //span {{product.baseCurrency}}/{{product.quoteCurrency}}
             span {{product.id}}
             //span {{parseFloat(product.price).toFixed(product.quoteScale)}}

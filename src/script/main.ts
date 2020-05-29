@@ -58,6 +58,7 @@ import { LinkProxyComponent } from './component/link-proxy/link-proxy';
 import { TradeHistoryPanelComponent } from './component/panel/trade-history/trade-history';
 import { TradeViewChartComponent } from './component/chart/trade-view/trade-view';
 import { OrderBookPanelComponent } from './component/panel/order-book/order-book';
+import { OrderBookPanelComponentDer } from './component/panel/order-book-der/order-book';
 import { OrderFormComponent } from './component/form/order/order';
 import { OrderFormComponentDer } from './component/form/order_der/order';
 import { TradePanelComponent } from './component/panel/trade/trade';
@@ -97,6 +98,7 @@ Framework.initModules([
     TradePanelComponent,
     TradePanelComponentDer,
     OrderBookPanelComponent,
+    OrderBookPanelComponentDer,
     OrderPanelComponent,
     OrderListPanelComponent,
     OrderFormComponent,
@@ -137,7 +139,7 @@ Framework.initModules([
     PaginationComponent,
     ChangePasswordModalComponent,
     ChartSliderComponent,
-])
+]);
 
 App.init(()=> {
     Framework.bootstrap();

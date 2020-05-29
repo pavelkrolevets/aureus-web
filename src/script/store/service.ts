@@ -14,7 +14,6 @@
 
 import { AccountStore } from './account';
 import { TradeStore } from './trade';
-import { TradeStoreDer } from './trade_der';
 
 export class StoreService {
 
@@ -24,9 +23,6 @@ export class StoreService {
         return TradeStore.instance();
     }
 
-    static get TradeDer() {
-        return TradeStoreDer.instance();
-    }
 
     static get Account() {
 

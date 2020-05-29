@@ -48,14 +48,14 @@ export class App {
             });
         });
 
-        StoreService.TradeDer.loadProducts(() => {
-            WebSocketService.Instance.connect(Constant.SOCKET_SERVER, () => {
-                StoreService.TradeDer.subscribeAllTicker();
-                callback && callback();
-            }, (msg: any) => {
-                StoreService.TradeDer.parseWebSocketMessage(msg);
-            });
-        });
+        // StoreService.TradeDer.loadProducts(() => {
+        //     WebSocketService.Instance.connect(Constant.SOCKET_SERVER, () => {
+        //         StoreService.TradeDer.subscribeAllTicker();
+        //         callback && callback();
+        //     }, (msg: any) => {
+        //         StoreService.TradeDer.parseWebSocketMessage(msg);
+        //     });
+        // });
 
     }
 
